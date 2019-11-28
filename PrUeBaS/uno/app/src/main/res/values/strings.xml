@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">ProSolar2.0</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="dato1">Humedad (%H)</string>
+
+    <string name="inicio">Inicio</string>
+    <string name="corrienteIP">Corriente Panel (Ip)</string>
+    <string name="corrienteIB">Corriente Bateria (Ib)</string>
+    <string name="volumenP">Volumen Potabilizado (Vp)</string>
+    <string name="corrienteIC">Corriente de Carga (Ic)</string>
+    <string name="consultas">Consultas</string>
+    <string name="enero">Enero</string>
+    <string name="febrero">Febrero</string>
+    <string name="marzo">Marzo</string>
+    <string name="abril">Abril</string>
+    <string name="mayo">Mayo</string>
+    <string name="junio">Junio</string>
+    <string name="julio">Julio</string>
+    <string name="agosto">Agosto</string>
+    <string name="septiembre">Septiembre</string>
+    <string name="octubre">Octubre</string>
+    <string name="noviembre">Noviembre</string>
+    <string name="diciembre">Diciembre</string>
+    <string name="lunes">Lunes</string>
+    <string name="martes">Martes</string>
+    <string name="miercoles">Miércoles</string>
+    <string name="jueves">Jueves</string>
+    <string name="viernes">Viernes</string>
+    <string name="sabado">Sábado</string>
+    <string name="domingo">Domingo</string>
+    <string name="contactanos">Contáctanos</string>
+    <string name="conocenos">Conócenos</string>
+    <string name="tipo_uso">Tipo de uso</string>
+    <string name="academico">Académido</string>
+    <string name="empresarial">Empresarial</string>
+    <string name="comercial">Comercial</string>
+    <string name="otro">Otro</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="paginas">Páginas</string>
+
+    <string name="humedad">Humedad</string>
+    <string name="irradiancia">Irradiancia</string>
+    <string name="corriente">Corriente</string>
+    <string name="voltaje">Voltaje</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="perfil">Perfil</string>
+    <string name="cerrarsesion">Cerrar sesión</string>
+    <string name="fecha_datos_tomados">Fecha de los datos tomados:</string>
+
+    <string name="contraseña">Contraseña</string>
+    <string name="usuario">Usuario</string>
+    <string name="registrar">Registrarse</string>
+    <string name="olvidarContraseña">Restrablecer contraseña</string>
+    <string name="ingresar">Ingresar</string>
+
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

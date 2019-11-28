@@ -1,0 +1,150 @@
+<resources>
+    <string name="app_name">ProSolar2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="dato1">Humedad (%H)</string>
+
+    <string name="inicio">Inicio</string>
+    <string name="corrienteIP">Corriente Panel (Ip)</string>
+    <string name="corrienteIB">Corriente Bateria (Ib)</string>
+    <string name="volumenP">Volumen Potabilizado (Vp)</string>
+    <string name="corrienteIC">Corriente de Carga (Ic)</string>
+    <string name="consultas">Consultas</string>
+    <string name="enero">Enero</string>
+    <string name="mensajeDeReenvio">Por favor vuelva a ingresar el correo electrónico y la contraseña para confirmar sus cambios.</string>
+    <string name="mensajes_campos_vacios">Por favor no deje los campos vacios.</string>
+    <string name="febrero">Febrero</string>
+    <string name="marzo">Marzo</string>
+    <string name="abril">Abril</string>
+    <string name="mayo">Mayo</string>
+    <string name="junio">Junio</string>
+    <string name="julio">Julio</string>
+    <string name="agosto">Agosto</string>
+    <string name="septiembre">Septiembre</string>
+    <string name="octubre">Octubre</string>
+    <string name="noviembre">Noviembre</string>
+    <string name="diciembre">Diciembre</string>
+    <string name="lunes">Lunes</string>
+    <string name="martes">Martes</string>
+    <string name="miercoles">Miércoles</string>
+    <string name="jueves">Jueves</string>
+    <string name="viernes">Viernes</string>
+    <string name="sabado">Sábado</string>
+    <string name="domingo">Domingo</string>
+    <string name="contactanos">Contáctanos</string>
+    <string name="conocenos">Conócenos</string>
+    <string name="tipo_uso">Tipo de uso</string>
+    <string name="este_valor_requerido">Este campo es requerido.</string>
+    <string name="academico">Académido</string>
+    <string name="empresarial">Empresarial</string>
+    <string name="comercial">Comercial</string>
+    <string name="otro">Otro</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="paginas">Páginas</string>
+
+    <string name="humedad">Humedad</string>
+    <string name="irradiancia">Irradiancia</string>
+    <string name="corriente">Corriente</string>
+    <string name="voltaje">Voltaje</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="perfil">Perfil</string>
+    <string name="cerrarsesion">Cerrar sesión</string>
+    <string name="fecha_datos_tomados">Fecha de los datos tomados:</string>
+
+    <string name="contraseña">Contraseña</string>
+    <string name="usuario">Usuario</string>
+    <string name="registrar">Registrarse</string>
+    <string name="olvidarContraseña">Restrablecer contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="imagen">Imagen</string>
+    <string name="informacion_principal">El grupo de Investigación, Desarrollo Tecnológico e innovación CTPI SENA Cauca(Innovatec), como parte de sus líneas de investigación desarrollar proyectos de investigación aplicada e innovación en energías renovables, eficiencia energétìca y gestión de la energía; con lo cual busca aportar en el desarrollo regional y nacional mediante los resultados obtenidos en cada uno de los proyectos desarrollados, adicionalmente se busca dar soluciones a problemáticas reales de zonas rurales, urbanas, empresariales, industriales y en general problemáticas que involucren el uso e integración de las energías renovables de la mano de la eficiencia energética.\n \nAqui podrá tener acceso a gráficas de tiempo real de irradiancia solar, humedad relativa, temperatura ambiente, corriente, voltaje y potencia fotovoltaica; así como acceso  al módulo de consultas  por dia, semana o mes de interés para el análisis de producción fotovoltaica, para el acceso a base de datos deberá registrarse en la página web del grupo de investigación (por definir), adicionalmente se cuenta con aplicaciones para proyectos específicos con energía renovables y eficiencia energética </string>
+    <string name="copy">© Copyright 2019-2020 SENOVA</string>
+    <string name="hora">Hora</string>
+
+    <string name="mensaje_contactanos">Grupo de investigación INNOVATEC-CTPI\nCentro de teleinformática y producción Industrial del SENA regional Cauca\nLínea de investigación en energías renovables y eficiencia energética\n\nInvestigador Líder: Rodrigo Montaño F.\n\nContacto 1: romontano@misena.edu.co\n\nContacto 2: solarctpi@gmail.com
+        \n\nSemillero de investigación en energías renovables y eficiencia energética SEINEREE\n\nUbicación: Popayán-Cauca, Casa Solar</string>
+    <string name="link_googlemaps">https://goo.gl/maps/oj9YJjY5JZN2</string>
+
+    <string name="irra">Irradiancia VS Tiempo</string>
+    <string name="info_perfil">Campos con asteriscos (*) son obligatorios. Numero de documento sin puntos(.), comas (,) y sin espacios.</string>
+
+    <string name="version">Versión 2.0</string>
+
+    <string name="ingrese_correo_r">Correo electrónico(*)</string>
+    <string name="ingrese_contrasena_r">Contraseña(*)</string>
+    <string name="ingrese_de_nuevo_contrasena">Confirmar contraseña(*)</string>
+    <string name="institucion">Institución</string>
+    <string name="pais">País(*)</string>
+    <string name="departamento">Departamento(*)</string>
+    <string name="ciudad">Ciudad(*)</string>
+
+
+    <string name="numero_de_documento">Número de documento(*)</string>
+    <string name="primer_nombre">Primer nombre(*)</string>
+    <string name="segundo_nombre">Segundo nombre (Opcional)</string>
+    <string name="primer_apellido">Primer apellido (*)</string>
+    <string name="segundo_apellido">Segundo apellido (Opcional)</string>
+    <string name="celular_o_telefono">Celular o Télefono (Opcional)</string>
+    <string name="email">Correo electrónico (*)</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="recordar">Recuerda que tu correo y número de documento son tus credenciales</string>
+    <string name="error_de_red">Error de red, no hay acceso a internet</string>
+    <string name="no_se_encuentra_los_servicios">No se encuentra los servicios</string>
+    <string name="voltaje_vs_irradiancia">Voltaje vs Irradiancia</string>
+    <string name="fecha">Fecha</string>
+    <string name="dato2">Temperatura (°C)</string>
+    <string name="dato3">Irradiancia (W/m²)</string>
+    <string name="dato4">Corriente (A)</string>
+    <string name="dato5">Voltaje (V)</string>
+    <string name="cargar_de_nuevo">Por favor cargue de nuevo el formulario</string>
+    <string name="titulo_dato1">Humedad (%H) vs Tiempo</string>
+    <string name="titulo_dato2">Temperatura (°C) vs Tiempo</string>
+    <string name="titulo_dato3">Irradiancia (W/m²) vs Tiempo</string>
+    <string name="titulo_dato4">Corriente (°A) vs Tiempo</string>
+    <string name="actualizar_contrasena">Actualizar o reinciar contraseña.</string>
+
+    <string name="correo_contraseña_no_coincide">El correo y contraseña no coinciden.</string>
+    <string name="se_han_actualizado_datos">Se han actualizado sus datos.</string>
+    <string name="texto_restablecer_contrasena">Por favor recuerda que tu correo es la única credencial para este tipo de cambios.</string>
+    <string name="cambiar_contrasena">Cambiar contraseña</string>
+    <string name="reestablecer_contrasena">Reestablecer contraseña</string>
+    <string name="ingrese_su_contrasena_actual">Ingrese su contraseña actual</string>
+    <string name="ingrese_su_nueva_contrasena">Ingrese su nueva contraseña</string>
+    <string name="confirme_su_contrasena_nueva">Confirme su contraseña nueva</string>
+    <string name="info_reestablecer_contrasena">A su correo le llegará un link el cual le permitirá reestablecer su contraseña al seleccionar ACEPTAR.</string>
+    <string name="hay_un_error_actualizar_contra">Hay un error en la actualización, por favor intentarlo de nuevo.</string>
+    <string name="las_contrasena_actual_no_coincide">La contraseña actual no es la correcta.</string>
+    <string name="a_ocurrido_un_error">A ocurrido un error, por favor intentalo de nuevo.</string>
+    <string name="se_le_ha_enviado_un_correo">Se le ha enviado un correo para restablecer su contraseña, por favor espere a que este llegue.</string>
+    <string name="se_ha_olvidado_de_contrasena">¿Se ha olvidado de su contraseña?</string>
+    <string name="a_ocurrido_un_error_afuera">A ocurrido un error, revise si el correo escrito si ha estado registrado.</string>
+    <string name="la_contrasena_no_coincide">La contraseña no coincide</string>
+    <string name="campos_vacios">Algunos o todos los campos estan vacios</string>
+    <string name="cambio_de_contrasena_exito">se ha cambiado su contraseña con éxito</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="no_hay_datos_disponibles">No hay datos disponibles.</string>
+    <string name="leer_mas">Leer más</string>
+    <string name="irradiancia_global_w_h">Irradiancia Global (W/h)</string>
+    <string name="energia_dia">Energía Día (Wh/m²/día)</string>
+    <string name="horas_de_sol">Horas de Sol (W/día)</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="ingrese_contrasena">Ingrese su contraseña</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

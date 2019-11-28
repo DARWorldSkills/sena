@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">SOLAR TEACH</string>
+
+    <string name="registrarse"> Registrarse</string>
+    <string name="usuario"> Usuario</string>
+    <string name="contraseña"> Contraseña</string>
+    <string name="olvidarContraseña"> ¿Olvidaste la Contraseña?</string>
+    <string name="ingresar"> Ingresar</string>
+    <string name="copy"> 2019 Copyright SENNOVA</string>
+
+    <string name="paginas"> Páginas</string>
+    <string name="contactanos">Contáctanos</string>
+    <string name="perfil">Perfil</string>
+    <string name="cerrarSesion">Cerrar sesión</string>
+
+    <string name="tipodepanel">Tipo de panel</string>
+    <string name="panel">Panel</string>
+    <string name="voltaje">Voltaje</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="tipodeconexion">Tipo de conexion</string>
+    <string name="pregunta">¿Pregunta?</string>
+    <string name="preguntaPanel">¿De cuanto es el voltaje del panel?</string>
+
+    <string name="tipodereguladro">Tipo de regulador</string>
+    <string name="regulador">Regulador</string>
+
+    <string name="tipodebateria">Tipo de bateria</string>
+    <string name="bateria">Bateria</string>
+
+    <string name="sistemaFotovoltaicoDc">Sistema Fotovoltaico DC</string>
+    <string name="Pregunta">¿Pregunta?</string>
+    <string name="PreguntaInicio">¿Pregunta para poder avanzar a la siguiente vista?</string>
+
+</resources>

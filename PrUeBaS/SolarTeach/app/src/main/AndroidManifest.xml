@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.casasolarctpi.solarteach">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logoeduka"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logoeduka"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".controllers.Registro"/>
+        <activity android:name=".controllers.Regulador"/>
+        <activity android:name=".controllers.preJuego" />
+        <activity android:name=".controllers.Juego"/>
+        <activity android:name=".controllers.Login" />
+        <activity android:name=".controllers.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".controllers.MainActivity" />
+    </application>
+
+</manifest>
