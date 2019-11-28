@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.casasolarctpi.prosolar2.R;
 import com.casasolarctpi.prosolar2.controllers.MainActivity;
 import com.casasolarctpi.prosolar2.models.CustomMarkerViewData1;
+import com.casasolarctpi.prosolar2.models.DatosGuardados;
 import com.casasolarctpi.prosolar2.models.DatosTiempoReal;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
@@ -51,6 +53,9 @@ public class FragmentHumedad extends Fragment {
     boolean obtenerPorPrimeraVez = false;
     private int colorGrafica;
     private String tipoDeDato;
+    private boolean tomaDePromedios [] = {
+        false,false,false,false,false,false
+    };
     public FragmentHumedad() {
         // Required empty public constructor
     }
@@ -77,7 +82,7 @@ public class FragmentHumedad extends Fragment {
 
     private void ingresarValoresFirebase() {
 
-        DatabaseReference datosTipoReal = MainActivity.reference.child("datos").child("datosRT");
+        final DatabaseReference datosTipoReal = MainActivity.reference.child("datos").child("datosRT");
 
         //QUERY PARA LIMITAR LOS DATOS
         datosTipoReal.addValueEventListener(new ValueEventListener() {
@@ -93,6 +98,23 @@ public class FragmentHumedad extends Fragment {
                         inputValuesRealTime();
                     }
                 }
+                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+                String fechaSec = datosTiempoRealList.get(datosTiempoRealList.size()-1).getFechaActual();
+                try {
+                    Date dateSec = format.parse(fechaSec);
+                    long limite = Math.abs(MainActivity.fechaYHoraAc.getTime() - dateSec.getTime()) / 60000;
+                    if (limite>=10 && limite<20 && !tomaDePromedios[0]){
+                        Toast.makeText(getContext(), "Han pasado 10 minutos o más", Toast.LENGTH_SHORT).show();
+                        DatosTiempoReal datosTiempoReal = datosTiempoRealList.get(datosTiempoRealList.size()-1);
+                        tomaDePromedios[0] = true;
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+
+
             }
 
             @Override

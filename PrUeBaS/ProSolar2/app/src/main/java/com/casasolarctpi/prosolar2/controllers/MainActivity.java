@@ -35,6 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -63,14 +64,14 @@ public class MainActivity extends AppCompatActivity
     public static DatabaseReference reference;
     HashMap<String, List<String>> listDataChild;
     ConstraintLayout clHome, clHumedad, clIrradiancia, clCorriente, clVoltaje, Contactanos, Ayuda, Perfil, CerrarSesion;
-
+    public static Date fechaYHoraAc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         androidx.appcompat.widget.Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        fechaYHoraAc = new Date();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -145,6 +146,31 @@ public class MainActivity extends AppCompatActivity
         //CONFIGURACION ADAPTER
         listAdapterExpandable = new com.casasolarctpi.prosolar2.models.ExpandableListAdapter(this, listDataHeader,listDataChild);
 
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+                Intent intent;
+                switch (i){
+                    case 0:
+                        switch (i1){
+                            case 0:
+                                //
+                                Toast.makeText(MainActivity.this, "Hola David", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                        break;
+
+                    case 1:
+                        Uri uri = Uri.parse(Constants.conocenos[i1]);
+                        intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        cerrarDrawable();
+                        break;
+                }
+                return false;
+            }
+        });
+
         //new ExpandableListAdapter(this, listDataHeader, listDataChild);
         //CONFIGURA ADAPTER EN EXPANDABLELISTVIEW
         expListView.setAdapter(listAdapterExpandable);
@@ -177,6 +203,8 @@ public class MainActivity extends AppCompatActivity
         //PASAMOS LOS DATOS A QUE SE MUESTREN EN EL MENU
         listDataChild.put(listDataHeader.get(0), consultas);
         listDataChild.put(listDataHeader.get(1), paginas);
+
+
 
     }
 
