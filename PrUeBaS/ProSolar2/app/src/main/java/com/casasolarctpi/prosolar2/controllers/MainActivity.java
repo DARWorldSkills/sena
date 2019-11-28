@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.casasolarctpi.prosolar2.R;
+import com.casasolarctpi.prosolar2.fragments.FragmentConsultas;
 import com.casasolarctpi.prosolar2.fragments.FragmentContactanos;
 import com.casasolarctpi.prosolar2.fragments.FragmentCorrientes;
 import com.casasolarctpi.prosolar2.fragments.FragmentHumedad;
@@ -25,22 +26,16 @@ import com.casasolarctpi.prosolar2.models.UserData;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -150,14 +145,29 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
                 Intent intent;
+                FragmentConsultas.modoGraficar=i1;
                 switch (i){
                     case 0:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, new FragmentConsultas()).commit();
                         switch (i1){
                             case 0:
-                                //
-                                Toast.makeText(MainActivity.this, "Hola David", Toast.LENGTH_SHORT).show();
+                                Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.titulo_irradiancia_humedad));
                                 break;
+                            case 1:
+                                Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.titulo_irradiancia_corriente));
+                                break;
+
+                            case 2:
+                                Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.titulo_irradiancia_voltaje));
+                                break;
+
+
+                            case 3:
+                                Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.titulo_humedad_temperatura));
+                                break;
+
                         }
+                        cerrarDrawable();
                         break;
 
                     case 1:

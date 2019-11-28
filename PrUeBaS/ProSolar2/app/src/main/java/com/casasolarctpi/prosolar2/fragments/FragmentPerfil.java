@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.casasolarctpi.prosolar2.R;
 import com.casasolarctpi.prosolar2.controllers.MainActivity;
+import com.casasolarctpi.prosolar2.controllers.RestablecerContrasena;
 import com.casasolarctpi.prosolar2.models.Constants;
 import com.casasolarctpi.prosolar2.models.UserData;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -132,7 +133,8 @@ public class FragmentPerfil extends Fragment  implements View.OnClickListener {
                 break;
 
             case R.id.txtOlvidoLaContrasena:
-
+                Intent intent = new Intent(getContext(), RestablecerContrasena.class);
+                startActivity(intent);
                 break;
 
         }

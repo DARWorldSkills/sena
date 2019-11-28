@@ -208,12 +208,6 @@ public class FragmentVoltajes extends Fragment {
                 tmpLineDataSet.setLineWidth(1.5f);
                 tmpLineDataSet.setCircleColors(colorGrafica[i]);
                 tmpLineDataSet.setDrawCircles(true);
-                if (i<3){
-                    tmpLineDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
-                }else {
-                    tmpLineDataSet.setAxisDependency(YAxis.AxisDependency.RIGHT);
-
-                }
                 dataSets.add(tmpLineDataSet);
 
             }
@@ -352,21 +346,22 @@ public class FragmentVoltajes extends Fragment {
 
 
         if (valorMinimo1 > 10) {
-            valorMinimo1= (float) (valorMinimo1*0.995);
+            valorMinimo1*= 0.9;
         }
 
-        if (valorMinimo2 > 10) {
-            valorMinimo2= (float) (valorMinimo2*0.995);
-        }
 
-        yAxisLeft.setAxisMaximum((float) (valorMaximo1*1.005));
-        yAxisRight.setAxisMaximum((float) (valorMaximo2*1.005));
+        valorMaximo1 *= 1.1;
+        yAxisLeft.setAxisMaximum(valorMaximo1);
+        yAxisRight.setAxisMaximum(valorMaximo1);
         yAxisLeft.setAxisMinimum(valorMinimo1);
-        yAxisRight.setAxisMinimum(valorMinimo2);
+        yAxisRight.setAxisMinimum(valorMinimo1);
+
+        if (valorMinimo1<10){
+            yAxisLeft.resetAxisMinimum();
+            yAxisRight.resetAxisMinimum();
+        }
         valorMaximo1 = 0;
-        valorMaximo2 = 0;
         valorMinimo1 = 0;
-        valorMinimo2 = 0;
 
 
         if (entries[0].size()>0){

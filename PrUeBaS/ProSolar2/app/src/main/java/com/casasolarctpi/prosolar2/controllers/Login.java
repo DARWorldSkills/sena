@@ -1,5 +1,6 @@
 package com.casasolarctpi.prosolar2.controllers;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -26,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
+    Button btnLogin;
     EditText txtUsuario, txtContraseña;
     TextView txtOlvidarContraseña;
     Button btnRegistrarse, btnIngresar;
@@ -83,9 +85,66 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
             case R.id.txtRestablecerContraseña:
-
+                restablecerContrasena();
                 break;
         }
+    }
+
+    private void restablecerContrasena() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.item_reestablecer_contrasena);
+        final EditText txtEmail = dialog.findViewById(R.id.txtEmail);
+        final Button btnAceptar = dialog.findViewById(R.id.btnAceptar1);
+        final Button btnCancelar = dialog.findViewById(R.id.btnCancelar1);
+
+        btnAceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                btnAceptar.setEnabled(false);
+                btnCancelar.setEnabled(false);
+                dialog.setCancelable(false);
+
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                String emailAddress = txtEmail.getText().toString();
+
+                auth.sendPasswordResetEmail(emailAddress).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("Reestablecer C afuera", "Email sent.");
+                            Toast.makeText(Login.this, R.string.se_le_ha_enviado_un_correo, Toast.LENGTH_SHORT).show();
+                            dialog.cancel();
+
+                        }else {
+                            btnAceptar.setEnabled(false);
+                            btnCancelar.setEnabled(false);
+                            dialog.setCancelable(false);
+                            Toast.makeText(Login.this, R.string.a_ocurrido_un_error_afuera, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                dialog.cancel();
+            }
+        });
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+        dialog.setCancelable(true);
+        dialog.show();
+
+
     }
 
     private void signIn(String email, String contrasena) {

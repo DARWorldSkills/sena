@@ -182,7 +182,10 @@ public class FragmentHumedad extends Fragment {
             data.setDrawValues(false);
             Description description = new Description();
             chart.setData(data);
-            description.setText(getString(R.string.fecha_datos_tomados) + " " + datosTiempoRealList.get(0).getFechaActual());
+            try {
+                description.setText(getString(R.string.fecha_datos_tomados) + " " + datosTiempoRealList.get(0).getFechaActual());
+            }catch (Exception ignored){ }
+
             xAxis = chart.getXAxis();
             xAxis.setValueFormatter(new IndexAxisValueFormatter(labelsChart));
             xAxis.setLabelRotationAngle(-10f);

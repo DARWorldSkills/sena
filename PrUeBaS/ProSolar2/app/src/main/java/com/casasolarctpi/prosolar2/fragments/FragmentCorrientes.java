@@ -50,7 +50,7 @@ public class FragmentCorrientes extends Fragment {
     List<DatosTiempoReal> datosTP = new ArrayList<>();
     List<Entry> entrada = new ArrayList<>();
     private int colorGrafica[] = new int[4];
-    float valorMaximo1, valorMinimo1, valorMaximo2, valorMinimo2;
+    float valorMaximo1, valorMinimo1;
     List<DatosTiempoReal> datosTiempoRealList = new ArrayList<>();
     boolean obtenerPorPrimeraVez = false;
     private List<String> labelsChart = new ArrayList<>();
@@ -142,7 +142,7 @@ public class FragmentCorrientes extends Fragment {
         });
 
         float [] todosLosDatos = new float[4];
-        for (int i=0; i<10;i++){
+        for (int i=0; i<todosLosDatos.length;i++){
             labelsChart.add(datosTiempoRealList.get(i).getHora());
             try {
 
@@ -152,31 +152,16 @@ public class FragmentCorrientes extends Fragment {
                 todosLosDatos[3] = Float.parseFloat(datosTiempoRealList.get(i).getCorriente4());
 
 
-                for (int j=0; j<todosLosDatos.length;j++){
-                    if (j<3) {
-                        if (todosLosDatos[j] > valorMaximo1) {
-                            valorMaximo1 = todosLosDatos[j];
-                        }
+                for (float todosLosDato : todosLosDatos) {
+                    if (todosLosDato > valorMaximo1) {
+                        valorMaximo1 = todosLosDato;
+                    }
 
-                        if (valorMinimo1 == 0) {
-                            valorMinimo1 = todosLosDatos[j];
-                        }
-                        if (todosLosDatos[j] < valorMinimo1) {
-                            valorMinimo1 = todosLosDatos[j];
-                        }
-                    }else {
-
-                        if (todosLosDatos[j] > valorMaximo2) {
-                            valorMaximo2 = todosLosDatos[j];
-                        }
-
-                        if (valorMinimo2 == 0) {
-                            valorMinimo2 = todosLosDatos[j];
-                        }
-                        if (todosLosDatos[j] < valorMinimo2) {
-                            valorMinimo2 = todosLosDatos[j];
-                        }
-
+                    if (valorMinimo1 == 0) {
+                        valorMinimo1 = todosLosDato;
+                    }
+                    if (todosLosDato < valorMinimo1) {
+                        valorMinimo1 = todosLosDato;
                     }
 
                 }
@@ -206,12 +191,6 @@ public class FragmentCorrientes extends Fragment {
                 tmpLineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
                 tmpLineDataSet.setLineWidth(1.5f);
                 tmpLineDataSet.setDrawCircles(false);
-                if (i<3){
-                    tmpLineDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
-                }else {
-                    tmpLineDataSet.setAxisDependency(YAxis.AxisDependency.RIGHT);
-
-                }
                 dataSets.add(tmpLineDataSet);
 
             }
@@ -228,22 +207,23 @@ public class FragmentCorrientes extends Fragment {
             YAxis yAxisLeft = tiempoRealCorriente.getAxisLeft();
             YAxis yAxisRight = tiempoRealCorriente.getAxisRight();
 
+
             if (valorMinimo1 > 10) {
-                valorMinimo1= (float) (valorMinimo1*0.995);
+                valorMinimo1*= 0.9;
             }
 
-            if (valorMinimo2 > 10) {
-                valorMinimo2= (float) (valorMinimo2*0.995);
-            }
 
-            yAxisLeft.setAxisMaximum((float) (valorMaximo1*1.005));
-            yAxisRight.setAxisMaximum((float) (valorMaximo2*1.005));
+            valorMaximo1 *= 1.1;
+            yAxisLeft.setAxisMaximum(valorMaximo1);
+            yAxisRight.setAxisMaximum(valorMaximo1);
             yAxisLeft.setAxisMinimum(valorMinimo1);
-            yAxisRight.setAxisMinimum(valorMinimo2);
-            valorMaximo1 = 0;
-            valorMaximo2 = 0;
-            valorMinimo1 = 0;
-            valorMinimo2 = 0;
+            yAxisRight.setAxisMinimum(valorMinimo1);
+
+            if (valorMinimo1<10){
+                yAxisLeft.resetAxisMinimum();
+                yAxisRight.resetAxisMinimum();
+            }
+
 
             tiempoRealCorriente.setDescription(description);
             tiempoRealCorriente.setDrawMarkers(true);
@@ -253,6 +233,8 @@ public class FragmentCorrientes extends Fragment {
             tiempoRealCorriente.setTouchEnabled(true);
             tiempoRealCorriente.setVisibility(View.VISIBLE);
             tiempoRealCorriente.invalidate();
+            valorMaximo1 = 0;
+            valorMinimo1 = 0;
 
         }
 
@@ -303,32 +285,16 @@ public class FragmentCorrientes extends Fragment {
 
 
                 for (int j=0; j<todosLosDatos.length;j++){
-                    if (j<3) {
-                        if (todosLosDatos[j] > valorMaximo1) {
-                            valorMaximo1 = todosLosDatos[j];
-                        }
-
-                        if (valorMinimo1 == 0) {
-                            valorMinimo1 = todosLosDatos[j];
-                        }
-                        if (todosLosDatos[j] < valorMinimo1) {
-                            valorMinimo1 = todosLosDatos[j];
-                        }
-                    }else {
-
-                        if (todosLosDatos[j] > valorMaximo2) {
-                            valorMaximo2 = todosLosDatos[j];
-                        }
-
-                        if (valorMinimo2 == 0) {
-                            valorMinimo2 = todosLosDatos[j];
-                        }
-                        if (todosLosDatos[j] < valorMinimo2) {
-                            valorMinimo2 = todosLosDatos[j];
-                        }
-
+                    if (todosLosDatos[j] > valorMaximo1) {
+                        valorMaximo1 = todosLosDatos[j];
                     }
 
+                    if (valorMinimo1 == 0) {
+                        valorMinimo1 = todosLosDatos[j];
+                    }
+                    if (todosLosDatos[j] < valorMinimo1) {
+                        valorMinimo1 = todosLosDatos[j];
+                    }
                 }
 
             }catch (Exception ignore){
@@ -348,23 +314,23 @@ public class FragmentCorrientes extends Fragment {
         YAxis yAxisLeft = tiempoRealCorriente.getAxisLeft();
         YAxis yAxisRight = tiempoRealCorriente.getAxisRight();
 
-
         if (valorMinimo1 > 10) {
-            valorMinimo1= (float) (valorMinimo1*0.995);
+            valorMinimo1*= 0.9;
         }
 
-        if (valorMinimo2 > 10) {
-            valorMinimo2= (float) (valorMinimo2*0.995);
-        }
 
-        yAxisLeft.setAxisMaximum((float) (valorMaximo1*1.005));
-        yAxisRight.setAxisMaximum((float) (valorMaximo2*1.005));
+        valorMaximo1 *= 1.1;
+        yAxisLeft.setAxisMaximum(valorMaximo1);
+        yAxisRight.setAxisMaximum(valorMaximo1);
         yAxisLeft.setAxisMinimum(valorMinimo1);
-        yAxisRight.setAxisMinimum(valorMinimo2);
+        yAxisRight.setAxisMinimum(valorMinimo1);
+
+        if (valorMinimo1<10){
+            yAxisLeft.resetAxisMinimum();
+            yAxisRight.resetAxisMinimum();
+        }
         valorMaximo1 = 0;
-        valorMaximo2 = 0;
         valorMinimo1 = 0;
-        valorMinimo2 = 0;
 
 
         if (entries[0].size()>0){

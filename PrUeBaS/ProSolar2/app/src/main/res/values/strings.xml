@@ -14,6 +14,9 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="dato1">Humedad (%H)</string>
+    <string name="dia">Día</string>
+    <string name="semana">Semana</string>
+    <string name="mes">Mes</string>
 
     <string name="inicio">Inicio</string>
     <string name="corrienteIP">Corriente Panel (Ip)</string>
@@ -50,8 +53,17 @@
     <string name="empresarial">Empresarial</string>
     <string name="comercial">Comercial</string>
     <string name="otro">Otro</string>
+    <string name="seleccione_dia">Seleccione dia</string>
+    <string name="seleccione_dia_semana">Seleccione el dia de la semana</string>
+    <string name="graficar">Graficar</string>
+    <string name="titulo_humedad_temperatura">Humedad(%H), Temperatura (°C) vs Tiempo </string>
     <string name="acerca_de">Acerca de</string>
     <string name="paginas">Páginas</string>
+    <string name="titulo_irradiancia_humedad">Irradiancia(W/m²), Humedad(%H) vs Tiempo </string>
+    <string name="titulo_irradiancia_corriente">Irradiancia(W/m²), Corrientes(A) vs Tiempo </string>
+    <string name="titulo_irradiancia_voltaje">Irradiancia(W/m²), Voltajes(V) vs Tiempo </string>
+    <string name="titulo_irradiancia_temperatura">Humedad(%H), Temperatura(°C) vs Tiempo </string>
+
 
     <string name="humedad">Humedad</string>
     <string name="irradiancia">Irradiancia</string>
