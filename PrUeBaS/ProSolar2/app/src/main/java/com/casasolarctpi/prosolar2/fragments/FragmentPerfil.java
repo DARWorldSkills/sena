@@ -51,6 +51,7 @@ public class FragmentPerfil extends Fragment  implements View.OnClickListener {
     private FirebaseAuth mAuth;
     UserData userData = new UserData();
     FirebaseUser user;
+
     public FragmentPerfil() {
         // Required empty public constructor
     }
@@ -60,7 +61,6 @@ public class FragmentPerfil extends Fragment  implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_fragment_perfil, container, false);
-
         inicializar();
         try {
             inizialiteFirebase();

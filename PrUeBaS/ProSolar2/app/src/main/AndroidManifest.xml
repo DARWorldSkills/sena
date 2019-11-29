@@ -9,10 +9,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controllers.RestablecerContrasena"></activity>
-        <activity android:name=".controllers.Registro" />
+        <activity android:name=".controllers.RestablecerContrasena"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".controllers.Registro"
+            android:screenOrientation="portrait"/>
         <activity android:name=".controllers.Login" />
-        <activity android:name=".controllers.Splash">
+        <activity android:name=".controllers.Splash"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

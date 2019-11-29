@@ -18,6 +18,7 @@
     <string name="semana">Semana</string>
     <string name="mes">Mes</string>
 
+    <string name="Registro">Crear usuario, los campos con (*) no son obligatorios</string>
     <string name="inicio">Inicio</string>
     <string name="corrienteIP">Corriente Panel (Ip)</string>
     <string name="corrienteIB">Corriente Bateria (Ib)</string>
@@ -86,6 +87,10 @@
     <string name="informacion_principal">El grupo de Investigación, Desarrollo Tecnológico e innovación CTPI SENA Cauca(Innovatec), como parte de sus líneas de investigación desarrollar proyectos de investigación aplicada e innovación en energías renovables, eficiencia energétìca y gestión de la energía; con lo cual busca aportar en el desarrollo regional y nacional mediante los resultados obtenidos en cada uno de los proyectos desarrollados, adicionalmente se busca dar soluciones a problemáticas reales de zonas rurales, urbanas, empresariales, industriales y en general problemáticas que involucren el uso e integración de las energías renovables de la mano de la eficiencia energética.\n \nAqui podrá tener acceso a gráficas de tiempo real de irradiancia solar, humedad relativa, temperatura ambiente, corriente, voltaje y potencia fotovoltaica; así como acceso  al módulo de consultas  por dia, semana o mes de interés para el análisis de producción fotovoltaica, para el acceso a base de datos deberá registrarse en la página web del grupo de investigación (por definir), adicionalmente se cuenta con aplicaciones para proyectos específicos con energía renovables y eficiencia energética </string>
     <string name="copy">© Copyright 2019-2020 SENOVA</string>
     <string name="hora">Hora</string>
+
+    <string name="mensajeAyuda">Si tienes problemas con la aplicación:\n\n1. Actualiza la app a la última versión.\n\nSi eso no funciona, prueba lo siguiente:\n\n2. Cierra la aplicación. Haz doble clic en el botón de inicio/desliza hacia arriba en iPhone X, y desliza hacia arriba en la vista previa de la aplicación para cerrarla. En Android, arrastra la aplicación fuera de la pantalla (según el dispositivo, deberás arrastrarla en direcciones diferentes).\n\nCon suerte ya funciona. Pero si no, prueba esto:\n\n3. Reinstala la app. En iPhone, mantén pulsado cualquier icono hasta que se empiecen a mover y aparezca una "x" pequeña al lado. En Android, ve a Ajustes y después a Aplicaciones y escoge la app que quieras desinstalar.\n\n¿Todavía nada?\n\n4. Reinicia el teléfono.\n\nSi después de seguir todos los pasos sigue sin funcionar, contacta con nosotros para solucionar el problema.
+
+</string>
 
     <string name="mensaje_contactanos">Grupo de investigación INNOVATEC-CTPI\nCentro de teleinformática y producción Industrial del SENA regional Cauca\nLínea de investigación en energías renovables y eficiencia energética\n\nInvestigador Líder: Rodrigo Montaño F.\n\nContacto 1: romontano@misena.edu.co\n\nContacto 2: solarctpi@gmail.com
         \n\nSemillero de investigación en energías renovables y eficiencia energética SEINEREE\n\nUbicación: Popayán-Cauca, Casa Solar</string>

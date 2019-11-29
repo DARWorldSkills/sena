@@ -104,6 +104,10 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
     TextView txtTituloGrafica1, txtTituloGrafica2, txtTituloGrafica3;
     String datoInfo1;
     String datoInfo2;
+    String datoInfo3;
+    String datoInfo4;
+    String datoInfo5;
+
 
     int colorDato1, colorDato2, colorDatoTexto1, colorDatoTexto2;
     float yAxisMax1, yAxisMin1, yAxisMax2, yAxisMin2;
@@ -987,6 +991,9 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
     private void showChartDay(List<DatosGuardados> datosGuardadosList) {
         List<Entry> entries = new ArrayList<>();
         List<Entry> entries1 = new ArrayList<>();
+        List<Entry> entries2 = new ArrayList<>();
+        List<Entry> entries3 = new ArrayList<>();
+        List<Entry> entries4 = new ArrayList<>();
         lineChart1.clearAnimation();
         lineChart1.clear();
         dataSets.clear();
@@ -1014,6 +1021,7 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                         case 1:
                             entries.add(new Entry(i, dato1));
                             entries1.add(new Entry(i, Float.parseFloat(datosCompletos.getCorriente1())));
+                            entries2.add(new Entry(i, Float.parseFloat(datosCompletos.getCorriente2())));
                             break;
                         case 2:
 
@@ -1050,26 +1058,35 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
             txtTituloGrafica1.setVisibility(VISIBLE);
             LineDataSet lineDataSet = new LineDataSet(entries, datoInfo1);
             LineDataSet lineDataSet1 = new LineDataSet(entries1, datoInfo2);
+            LineDataSet lineDataSet2 = new LineDataSet(entries2, datoInfo3);
 
             lineDataSet.setColor(colorDato1);
             lineDataSet1.setColor(colorDato2);
+            lineDataSet2.setColor(colorDato1);
 
             lineDataSet.setValueTextColor(colorDatoTexto1);
             lineDataSet1.setValueTextColor(colorDatoTexto2);
+            lineDataSet2.setValueTextColor(colorDato1);
 
             lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
             lineDataSet1.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+            lineDataSet2.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
-            lineDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
+            lineDataSet.setAxisDependency(YAxis.AxisDependency.RIGHT);
             lineDataSet1.setAxisDependency(YAxis.AxisDependency.RIGHT);
+            lineDataSet2.setAxisDependency(YAxis.AxisDependency.RIGHT);
+
 
             lineDataSet.setDrawCircles(false);
             lineDataSet1.setDrawCircles(false);
+            lineDataSet2.setDrawCircles(false);
             lineDataSet.setFormSize(10f);
             lineDataSet1.setFormSize(10f);
+            lineDataSet2.setFormSize(10f);
 
             dataSets.add(lineDataSet);
             dataSets.add(lineDataSet1);
+            dataSets.add(lineDataSet2);
             LineData data = new LineData(dataSets);
             data.setDrawValues(false);
             lineChart1.setData(data);

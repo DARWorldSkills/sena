@@ -135,12 +135,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
         dialog.setCancelable(true);
         dialog.show();
 
@@ -167,7 +161,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                     Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                 }else{
                     Log.w("Inicio de sesión", "signInWithEmail:success");
-                    Toast.makeText(Login.this, "El usuario no esta registrado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "El usuario no esta registrado, o la contraseña no coincide", Toast.LENGTH_SHORT).show();
                     updateUI(null);
                     hideProgressDialog();
                 }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.casasolarctpi.prosolar2.R;
+import com.casasolarctpi.prosolar2.fragments.FragmentAyuda;
 import com.casasolarctpi.prosolar2.fragments.FragmentConsultas;
 import com.casasolarctpi.prosolar2.fragments.FragmentContactanos;
 import com.casasolarctpi.prosolar2.fragments.FragmentCorrientes;
@@ -308,6 +309,9 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.ayuda:
+                getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, new FragmentAyuda()).commit();
+                Objects.requireNonNull(getSupportActionBar()).setTitle(getResources().getString(R.string.ayuda));
+                cerrarDrawable();
 
                 break;
 

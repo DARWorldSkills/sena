@@ -11,6 +11,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_arrow_down"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -21,10 +22,11 @@
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:cardBackgroundColor="@android:color/transparent"
-        app:cardCornerRadius="1dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:contentPadding="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,24 +43,41 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:background="@drawable/prea"
+                android:hapticFeedbackEnabled="true"
                 android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Registro"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout10"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/textView2">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCorreo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="correo"
+                        android:hint="Correo electrónico"
                         android:inputType="textEmailAddress"
                         android:textColorHint="@color/colorAccent" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -118,7 +137,7 @@
                         android:id="@+id/txtPrimerNombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="primerNombre"
+                        android:hint="PrimerNombre"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,7 +156,7 @@
                         android:id="@+id/txtSegundoNombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="segundoNombre"
+                        android:hint="SegundoNombre*"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,7 +175,7 @@
                         android:id="@+id/txtPrimerApellido"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="apellido"
+                        android:hint="Apellido"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -175,7 +194,7 @@
                         android:id="@+id/txtSegundoApellido"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="segundoApellido"
+                        android:hint="SegundoApellido*"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -193,7 +212,7 @@
                         android:id="@+id/txtInstitucion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="institucion"
+                        android:hint="Institución"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -212,7 +231,7 @@
                         android:id="@+id/txtPais"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="pais"
+                        android:hint="País"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -231,7 +250,7 @@
                         android:id="@+id/txtDepartamento"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="departamento"
+                        android:hint="Departamento"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -250,7 +269,7 @@
                         android:id="@+id/txtCiudad"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="ciudad"
+                        android:hint="Ciudad"
                         android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
