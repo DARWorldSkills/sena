@@ -15,6 +15,7 @@ import android.widget.ListAdapter;
 import android.widget.Toast;
 
 import com.casasolarctpi.prosolar2.R;
+import com.casasolarctpi.prosolar2.models.Constants;
 import com.casasolarctpi.prosolar2.models.UserData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -73,14 +74,8 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
     private void agregarDatos() {
 
-        List<String>data = new ArrayList<>();
-        data.add("Academico");
-        data.add("Empresarial");
-        data.add("Comercial");
-        data.add("Otro");
 
-        ArrayAdapter adapter= new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1);
-        msTipoDeUso.setAdapter(adapter);
+        msTipoDeUso.setItems(Constants.tipoDeUso);
     }
 
 

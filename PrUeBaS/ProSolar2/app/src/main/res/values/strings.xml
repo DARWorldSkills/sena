@@ -53,9 +53,11 @@
     <string name="empresarial">Empresarial</string>
     <string name="comercial">Comercial</string>
     <string name="otro">Otro</string>
+    <string name="a">a</string>
     <string name="seleccione_dia">Seleccione dia</string>
     <string name="seleccione_dia_semana">Seleccione el dia de la semana</string>
     <string name="graficar">Graficar</string>
+    <string name="no_hay_datos">No hay datos del día seleccionado</string>
     <string name="titulo_humedad_temperatura">Humedad(%H), Temperatura (°C) vs Tiempo </string>
     <string name="acerca_de">Acerca de</string>
     <string name="paginas">Páginas</string>
@@ -64,6 +66,7 @@
     <string name="titulo_irradiancia_voltaje">Irradiancia(W/m²), Voltajes(V) vs Tiempo </string>
     <string name="titulo_irradiancia_temperatura">Humedad(%H), Temperatura(°C) vs Tiempo </string>
 
+    <string name="mensaje_week">Por favor seleccione un día (esta selección tomará toda la semana de dicho día)</string>
 
     <string name="humedad">Humedad</string>
     <string name="irradiancia">Irradiancia</string>

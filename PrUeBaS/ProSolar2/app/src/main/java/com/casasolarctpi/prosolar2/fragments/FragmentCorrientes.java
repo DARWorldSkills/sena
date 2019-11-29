@@ -190,7 +190,9 @@ public class FragmentCorrientes extends Fragment {
                 tmpLineDataSet.setValueTextColor(colorGrafica[i]);
                 tmpLineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
                 tmpLineDataSet.setLineWidth(1.5f);
-                tmpLineDataSet.setDrawCircles(false);
+                tmpLineDataSet.setCircleColors(colorGrafica[i]);
+                tmpLineDataSet.setDrawCircles(true);
+                //tmpLineDataSet.setDrawCircles(false);
                 dataSets.add(tmpLineDataSet);
 
             }
@@ -209,7 +211,7 @@ public class FragmentCorrientes extends Fragment {
 
 
             if (valorMinimo1 > 10) {
-                valorMinimo1*= 0.9;
+                valorMinimo1*= 1;
             }
 
 

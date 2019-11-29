@@ -14,4 +14,12 @@ public class Constants {
 
     public static final String[] tipoDeUso = {"Academico", "Empresarial", "Comercial", "Otro"};
 
+    public static final String [] MESES={"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+    public static final String [] DIAS_DE_LA_SEMANA = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+
+
+    //Constante para año máximo y mínimo de la consulta
+    public static final int MIN_YEAR = 2018;
+    public static final int MAX_YEAR = 2099;
+
 }

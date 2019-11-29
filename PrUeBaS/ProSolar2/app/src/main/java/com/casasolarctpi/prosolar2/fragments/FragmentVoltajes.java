@@ -350,7 +350,7 @@ public class FragmentVoltajes extends Fragment {
         }
 
 
-        valorMaximo1 *= 1.1;
+        valorMaximo1 *= 1.5;
         yAxisLeft.setAxisMaximum(valorMaximo1);
         yAxisRight.setAxisMaximum(valorMaximo1);
         yAxisLeft.setAxisMinimum(valorMinimo1);

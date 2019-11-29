@@ -185,10 +185,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private void hideProgressDialog() {
         findViewById(R.id.pbLogin).setVisibility(View.INVISIBLE);
-        btnIngresar.setEnabled(false);
-        btnRegistrarse.setEnabled(false);
-        txtUsuario.setEnabled(false);
-        txtContraseña.setEnabled(false);
+        btnIngresar.setEnabled(true);
+        btnRegistrarse.setEnabled(true);
+        txtUsuario.setEnabled(true);
+        txtContraseña.setEnabled(true);
     }
 
     private boolean validar(){

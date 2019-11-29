@@ -194,12 +194,12 @@ public class FragmentHumedad extends Fragment {
             YAxis yAxisRight = chart.getAxisRight();
 
             if (valorMinimo > 10) {
-                valorMinimo -= 0.2f;
+                valorMinimo -= 0.9f;
             }
 
 
-            yAxisLeft.setAxisMaximum(valorMaximo + 0.2f);
-            yAxisRight.setAxisMaximum(valorMaximo + 0.2f);
+            yAxisLeft.setAxisMaximum(valorMaximo + 0.9f);
+            yAxisRight.setAxisMaximum(valorMaximo + 0.9f);
             yAxisLeft.setAxisMinimum(valorMinimo);
             yAxisRight.setAxisMinimum(valorMinimo);
             valorMaximo = 0;
@@ -281,12 +281,12 @@ public class FragmentHumedad extends Fragment {
         YAxis yAxisRight = chart.getAxisRight();
 
         if (valorMinimo>10){
-            valorMinimo-=0.1f;
+            valorMinimo-=0.9f;
         }
 
 
-        yAxisLeft.setAxisMaximum(valorMaximo+0.2f);
-        yAxisRight.setAxisMaximum(valorMaximo+0.2f);
+        yAxisLeft.setAxisMaximum(valorMaximo+0.9f);
+        yAxisRight.setAxisMaximum(valorMaximo+0.9f);
         yAxisLeft.setAxisMinimum(valorMinimo);
         yAxisRight.setAxisMinimum(valorMinimo);
         valorMaximo=0;
