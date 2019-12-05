@@ -109,8 +109,8 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
     String datoInfo5;
 
 
-    int colorDato1, colorDato2, colorDatoTexto1, colorDatoTexto2;
-    float yAxisMax1, yAxisMin1, yAxisMax2, yAxisMin2;
+    int colorDato1, colorDato2, colorDato3,colorDato4, colorDato5, colorDatoTexto1, colorDatoTexto2;
+    float yAxisMax1, yAxisMin1, yAxisMax2, yAxisMin2, yAxisMax3, yAxisMin3, yAxisMax4, yAxisMin4, yAxisMax5, yAxisMin5;
     float yAxisMaxS1, yAxisMinS1, yAxisMaxS2, yAxisMinS2;
     View view;
     TabHost tabHost;
@@ -179,10 +179,13 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                 datoInfo2 = getResources().getString(R.string.dato4);
 
                 colorDato1 = getResources().getColor(R.color.colorGraficaPunto3);
-                colorDato2 = getResources().getColor(R.color.colorGraficaPunto4);
+                colorDato2 = getResources().getColor(R.color.colorGraficaI1);
+                colorDato3 = getResources().getColor(R.color.colorGraficaI2);
+                colorDato4 = getResources().getColor(R.color.colorGraficaI3);
+                colorDato5 = getResources().getColor(R.color.colorGraficaI4);
 
                 colorDatoTexto1 = getResources().getColor(R.color.colorGraficaLinea3);
-                colorDatoTexto2 = getResources().getColor(R.color.colorGraficaLinea4);
+                colorDatoTexto2 = getResources().getColor(R.color.colorGraficaLinea5);
 
                 txtTituloGrafica1.setText(R.string.titulo_irradiancia_corriente);
                 txtTituloGrafica2.setText(R.string.titulo_irradiancia_corriente);
@@ -201,6 +204,12 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                 colorDatoTexto1 = getResources().getColor(R.color.colorGraficaLinea3);
                 colorDatoTexto2 = getResources().getColor(R.color.colorGraficaLinea5);
 
+                colorDato1 = getResources().getColor(R.color.colorGraficaPunto3);
+                colorDato2 = getResources().getColor(R.color.colorGraficaI1);
+                colorDato3 = getResources().getColor(R.color.colorGraficaI2);
+                colorDato4 = getResources().getColor(R.color.colorGraficaI3);
+                colorDato5 = getResources().getColor(R.color.colorGraficaI4);
+
 
                 txtTituloGrafica1.setText(R.string.titulo_irradiancia_voltaje);
                 txtTituloGrafica2.setText(R.string.titulo_irradiancia_voltaje);
@@ -216,8 +225,8 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                 datoInfo1 = getResources().getString(R.string.dato1);
                 datoInfo2 = getResources().getString(R.string.dato2);
 
-                colorDato1 = getResources().getColor(R.color.colorGraficaPunto1);
-                colorDato2 = getResources().getColor(R.color.colorGraficaPunto2);
+                colorDato1 = getResources().getColor(R.color.colorGraficaLinea5);
+                colorDato2 = getResources().getColor(R.color.colorCoral);
 
                 colorDatoTexto1 = getResources().getColor(R.color.colorGraficaLinea1);
                 colorDatoTexto2 = getResources().getColor(R.color.colorGraficaLinea2);
@@ -362,7 +371,7 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
 
     private void getDataToFirebaseForMonth(int year, int month) {
 
-        DatabaseReference dbrMonth = MainActivity.reference.child("datos").child("y"+year).child("m"+month);
+        DatabaseReference dbrMonth = MainActivity.reference.child("datos").child("datosAcum").child("y"+year).child("m"+month);
         dbrMonth.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@androidx.annotation.NonNull DataSnapshot dataSnapshot) {
@@ -373,13 +382,11 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                         GenericTypeIndicator<ArrayList<DatosGuardados>> t = new GenericTypeIndicator<ArrayList<DatosGuardados>>() {};
                         datosCompletosMes[tmpIndex-1] = postSnapshot.getValue(t);
                     }catch (Exception e){
-                        Log.e("Error consulta mes", e.getMessage());
                     }
 
                 }
                 try {
                     showChartMonth();
-                    Log.e("Pasa dato","!");
 
                 }catch (Exception e){
                     try {
@@ -404,6 +411,9 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
 
         List<BarEntry> entry1 = new ArrayList<>();
         List<BarEntry> entry2 = new ArrayList<>();
+        List<BarEntry> entry3 = new ArrayList<>();
+        List<BarEntry> entry4 = new ArrayList<>();
+        List<BarEntry> entry5 = new ArrayList<>();
         barChart2.clearAnimation();
         barChart2.clear();
         List<String> labelC = new ArrayList<>();
@@ -411,6 +421,9 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
         labelC.add(" ");
         float tmpValue = 0;
         float tmpValue2 = 0;
+        float tmpValue3 = 0;
+        float tmpValue4 = 0;
+        float tmpValue5 = 0;
         for (int i=0; i<datosCompletosMes.length;i++) {
             DatosPromedio datosPromedio = promedioDia(datosCompletosMes[i]);
             switch (modoGraficar) {
@@ -421,16 +434,19 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                 case 1:
                     tmpValue = datosPromedio.getIrradianciaPromedio();
                     tmpValue2 = datosPromedio.getCorriente1Promedio();
+                    tmpValue3 = datosPromedio.getCorriente2Promedio();
+                    tmpValue4 = datosPromedio.getCorriente3Promedio();
+                    tmpValue5 = datosPromedio.getCorriente4Promedio();
+
                     break;
                 case 2:
                     tmpValue = datosPromedio.getIrradianciaPromedio();
                     tmpValue2 = datosPromedio.getVoltaje1Promedio();
+                    tmpValue3 = datosPromedio.getVoltaje2Promedio();
+                    tmpValue4 = datosPromedio.getVoltaje3Promedio();
+                    tmpValue5 = datosPromedio.getVoltaje4Promedio();
                     break;
                 case 3:
-                    tmpValue = datosPromedio.getIrradianciaPromedio();
-                    tmpValue2 = datosPromedio.getTemperaturaPromedio();
-                    break;
-                case 4:
                     tmpValue = datosPromedio.getHumedadPromedio();
                     tmpValue2 = datosPromedio.getTemperaturaPromedio();
                     break;
@@ -458,9 +474,43 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                 yAxisMin2 = tmpValue2;
             }
 
+            if (tmpValue3 > yAxisMax3) {
+                yAxisMax3 = tmpValue3;
+            }
+            if (yAxisMin3 == 0) {
+                yAxisMin3 = tmpValue3;
+            }
+            if (tmpValue3 < yAxisMin3) {
+                yAxisMin3 = tmpValue3;
+            }
+
+            if (tmpValue4 > yAxisMax4) {
+                yAxisMax4 = tmpValue4;
+            }
+            if (yAxisMin4 == 0) {
+                yAxisMin4 = tmpValue4;
+            }
+            if (tmpValue4 < yAxisMin4) {
+                yAxisMin4 = tmpValue4;
+            }
+
+            if (tmpValue5 > yAxisMax5) {
+                yAxisMax5 = tmpValue5;
+            }
+            if (yAxisMin5 == 0) {
+                yAxisMin5 = tmpValue5;
+            }
+            if (tmpValue5 < yAxisMin5) {
+                yAxisMin5 = tmpValue5;
+            }
+
 
             entry1.add(new BarEntry(i + 1, tmpValue));
             entry2.add(new BarEntry(i + 1, tmpValue2));
+            entry3.add(new BarEntry(i + 1, tmpValue3));
+            entry4.add(new BarEntry(i + 1, tmpValue4));
+            entry5.add(new BarEntry(i + 1, tmpValue5));
+
             labelC.add(Integer.toString(i + 1));
 
             if (i<=datosCompletosMes.length){
@@ -480,24 +530,42 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
 
             BarDataSet barDataSet = new BarDataSet(entry1,datoInfo1);
             BarDataSet barDataSet1 = new BarDataSet(entry2,datoInfo2);
+            BarDataSet barDataSet3 = new BarDataSet(entry3,datoInfo3);
+            BarDataSet barDataSet4 = new BarDataSet(entry4,datoInfo4);
+            BarDataSet barDataSet5 = new BarDataSet(entry5,datoInfo5);
 
             barDataSet.setColor(colorDato1);
             barDataSet1.setColor(colorDato2);
+            barDataSet3.setColor(colorDato3);
+            barDataSet4.setColor(colorDato4);
+            barDataSet5.setColor(colorDato5);
 
             barDataSet.setDrawValues(false);
             barDataSet1.setDrawValues(false);
+            barDataSet3.setDrawValues(false);
+            barDataSet4.setDrawValues(false);
+            barDataSet5.setDrawValues(false);
 
             barDataSet.setValueTextColor(colorDatoTexto1);
             barDataSet1.setValueTextColor(colorDatoTexto2);
+            barDataSet3.setValueTextColor(colorDato3);
+            barDataSet4.setValueTextColor(colorDato4);
+            barDataSet5.setValueTextColor(colorDato5);
 
 
-            barDataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
+            barDataSet.setAxisDependency(YAxis.AxisDependency.RIGHT);
             barDataSet1.setAxisDependency(YAxis.AxisDependency.RIGHT);
+            barDataSet3.setAxisDependency(YAxis.AxisDependency.RIGHT);
+            barDataSet4.setAxisDependency(YAxis.AxisDependency.RIGHT);
+            barDataSet5.setAxisDependency(YAxis.AxisDependency.RIGHT);
 
             List<IBarDataSet> dataBarSets = new ArrayList<>();
             dataBarSets.add(barDataSet);
             dataBarSets.add(barDataSet1);
-            BarData data = new BarData(barDataSet,barDataSet1);
+            dataBarSets.add(barDataSet3);
+            dataBarSets.add(barDataSet4);
+            dataBarSets.add(barDataSet5);
+            BarData data = new BarData(barDataSet,barDataSet1, barDataSet3, barDataSet4, barDataSet5);
 
             barChart2.setData(data);
             Description description = new Description();
@@ -650,7 +718,7 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
 
     private void getDataDayOFFireBaseWeek(int year, int month, int dayOfMonth,final int contador) {
 
-        DatabaseReference datosDia = MainActivity.reference.child("datos").child("y"+year).child("m"+month).child("d"+dayOfMonth);
+        DatabaseReference datosDia = MainActivity.reference.child("datos").child("datosAcum").child("y"+year).child("m"+month).child("d"+dayOfMonth);
         datosDia.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -778,10 +846,20 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
 
         BarDataSet barDataSet = new BarDataSet(entriesBarWeek,datoInfo1);
         BarDataSet barDataSet1 = new BarDataSet(entriesBarWeek1,datoInfo2);
+        BarDataSet barDataSet2 = new BarDataSet(entriesBarWeek2,datoInfo3);
+        BarDataSet barDataSet3 = new BarDataSet(entriesBarWeek3,datoInfo4);
+        BarDataSet barDataSet4 = new BarDataSet(entriesBarWeek4,datoInfo5);
         barDataSet.setColor(colorDato1);
         barDataSet1.setColor(colorDato2);
+        barDataSet2.setColor(colorDato3);
+        barDataSet3.setColor(colorDato4);
+        barDataSet4.setColor(colorDato5);
         barDataSet.setBarShadowColor(colorDatoTexto1);
         barDataSet1.setBarShadowColor(colorDatoTexto2);
+        barDataSet2.setBarShadowColor(colorDato3);
+        barDataSet3.setBarShadowColor(colorDato4);
+        barDataSet4.setBarShadowColor(colorDato5);
+
         final DecimalFormat decimalFormat = new DecimalFormat("####.##");
         barDataSet.setValueFormatter(new IValueFormatter() {
             @Override
@@ -803,7 +881,10 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
         List<IBarDataSet> dataBarSets = new ArrayList<>();
         dataBarSets.add(barDataSet);
         dataBarSets.add(barDataSet1);
-        BarData data = new BarData(barDataSet,barDataSet1);
+        dataBarSets.add(barDataSet2);
+        dataBarSets.add(barDataSet3);
+        dataBarSets.add(barDataSet4);
+        BarData data = new BarData(barDataSet,barDataSet1, barDataSet2, barDataSet3, barDataSet4);
         Description description = new Description();
         description.setText(" ");
         data.setBarWidth(0.48f); // set custom bar width
@@ -883,7 +964,6 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                     }
 
                 } catch (Exception e) {
-                    Log.e("error",e.getMessage()+ " "+ el1.getHora());
 
                 }
 
@@ -965,14 +1045,14 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
     private void getDataDayOFFireBase(int year, int realMonth, int dayOfMonth) {
 
         final List<DatosGuardados>[] datosCompletos = new List[]{new ArrayList<>()};
-        DatabaseReference datosDia = MainActivity.reference.child("datos").child("y" + year).child("m" + month).child("d" + dayOfMonth);
+        DatabaseReference datosDia = MainActivity.reference.child("datos").child("datosAcum").child("y" + year).child("m" + realMonth).child("d" + dayOfMonth);
 
         datosDia.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<ArrayList<DatosGuardados>> t = new GenericTypeIndicator<ArrayList<DatosGuardados>>() {
-                };
+                GenericTypeIndicator<ArrayList<DatosGuardados>> t = new GenericTypeIndicator<ArrayList<DatosGuardados>>() {};
                 try {
+
                     showChartDay(dataSnapshot.getValue(t));
 
                 } catch (Exception ignore) {
@@ -1022,27 +1102,26 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
                             entries.add(new Entry(i, dato1));
                             entries1.add(new Entry(i, Float.parseFloat(datosCompletos.getCorriente1())));
                             entries2.add(new Entry(i, Float.parseFloat(datosCompletos.getCorriente2())));
+                            entries3.add(new Entry(i, Float.parseFloat(datosCompletos.getCorriente3())));
+                            entries4.add(new Entry(i, Float.parseFloat(datosCompletos.getCorriente4())));
+
                             break;
                         case 2:
-
                             entries.add(new Entry(i, dato1));
                             entries1.add(new Entry(i, Float.parseFloat(datosCompletos.getVoltaje1())));
+                            entries2.add(new Entry(i, Float.parseFloat(datosCompletos.getVoltaje2())));
+                            entries3.add(new Entry(i, Float.parseFloat(datosCompletos.getVoltaje3())));
+                            entries4.add(new Entry(i, Float.parseFloat(datosCompletos.getVoltaje4())));
                             break;
 
                         case 3:
-
-                            entries.add(new Entry(i, dato1));
                             entries1.add(new Entry(i, Float.parseFloat(datosCompletos.getTemperatura())));
-                            break;
-                        case 4:
-
-                            entries.add(new Entry(i, Float.parseFloat(datosCompletos.getHumedad())));
-                            entries1.add(new Entry(i, Float.parseFloat(datosCompletos.getTemperatura())));
+                            entries2.add(new Entry(i, Float.parseFloat(datosCompletos.getHumedad())));
                             break;
                     }
 
 
-                } catch (Exception ignored) {
+                } catch (Exception ignore) {
 
                 }
 
@@ -1052,41 +1131,55 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
             pBConsultas.setVisibility(INVISIBLE);
         }
 
-        //Log.e("Datos",entries.toString()+"\n"+labelsChart.toString());
 
         if (entries.size() != 0) {
             txtTituloGrafica1.setVisibility(VISIBLE);
             LineDataSet lineDataSet = new LineDataSet(entries, datoInfo1);
             LineDataSet lineDataSet1 = new LineDataSet(entries1, datoInfo2);
             LineDataSet lineDataSet2 = new LineDataSet(entries2, datoInfo3);
+            LineDataSet lineDataSet3 = new LineDataSet(entries3, datoInfo4);
+            LineDataSet lineDataSet4 = new LineDataSet(entries4, datoInfo5);
 
             lineDataSet.setColor(colorDato1);
             lineDataSet1.setColor(colorDato2);
-            lineDataSet2.setColor(colorDato1);
+            lineDataSet2.setColor(colorDato3);
+            lineDataSet3.setColor(colorDato4);
+            lineDataSet4.setColor(colorDato5);
 
             lineDataSet.setValueTextColor(colorDatoTexto1);
             lineDataSet1.setValueTextColor(colorDatoTexto2);
             lineDataSet2.setValueTextColor(colorDato1);
+            lineDataSet3.setValueTextColor(colorDato3);
+            lineDataSet4.setValueTextColor(colorDato3);
 
             lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
             lineDataSet1.setMode(LineDataSet.Mode.CUBIC_BEZIER);
             lineDataSet2.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+            lineDataSet3.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+            lineDataSet4.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
             lineDataSet.setAxisDependency(YAxis.AxisDependency.RIGHT);
             lineDataSet1.setAxisDependency(YAxis.AxisDependency.RIGHT);
             lineDataSet2.setAxisDependency(YAxis.AxisDependency.RIGHT);
-
+            lineDataSet3.setAxisDependency(YAxis.AxisDependency.RIGHT);
+            lineDataSet4.setAxisDependency(YAxis.AxisDependency.RIGHT);
 
             lineDataSet.setDrawCircles(false);
             lineDataSet1.setDrawCircles(false);
             lineDataSet2.setDrawCircles(false);
+            lineDataSet3.setDrawCircles(false);
+            lineDataSet4.setDrawCircles(false);
             lineDataSet.setFormSize(10f);
             lineDataSet1.setFormSize(10f);
             lineDataSet2.setFormSize(10f);
+            lineDataSet3.setFormSize(10f);
+            lineDataSet4.setFormSize(10f);
 
             dataSets.add(lineDataSet);
             dataSets.add(lineDataSet1);
             dataSets.add(lineDataSet2);
+            dataSets.add(lineDataSet3);
+            dataSets.add(lineDataSet4);
             LineData data = new LineData(dataSets);
             data.setDrawValues(false);
             lineChart1.setData(data);
@@ -1108,7 +1201,7 @@ public class FragmentConsultas extends Fragment implements View.OnClickListener,
 
 
         } else {
-            Toast.makeText(getContext(), R.string.no_hay_datos, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), -+R.string.no_hay_datos, Toast.LENGTH_SHORT).show();
         }
         btnConsulta1.setEnabled(true);
         pBConsultas.setVisibility(View.INVISIBLE);

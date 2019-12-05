@@ -2,6 +2,7 @@ package com.casasolarctpi.prosolar2.fragments;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,6 @@ public class FragmentHumedad extends Fragment {
 
     View view;
     LineChart chart;
-    List<DatosTiempoReal> datosTP = new ArrayList<>();
     List<Entry> entradas = new ArrayList<>();
     List<DatosTiempoReal> datosTiempoRealList = new ArrayList<>();
     private List<String> labelsChart = new ArrayList<>();
@@ -71,6 +71,7 @@ public class FragmentHumedad extends Fragment {
         ingresarValoresFirebase();
         return view;
     }
+
 
     private void inicializar() {
 
@@ -154,6 +155,7 @@ public class FragmentHumedad extends Fragment {
             labelsChart.add(datosTiempoRealList.get(i).getHora());
             float dato = 0;
             try {
+
                 dato = Float.parseFloat(datosTiempoRealList.get(i).getHumedad());
                 if (dato>valorMaximo){
                     valorMaximo = dato;
@@ -170,13 +172,15 @@ public class FragmentHumedad extends Fragment {
             }
 
             entradas.add(new Entry(i,dato));
+
         }
 
         if (entradas.size()>0) {
             LineDataSet lineDataSet = new LineDataSet(entradas, tipoDeDato);
             lineDataSet.setColor(colorGrafica);
             lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-            lineDataSet.setDrawCircles(false);
+            lineDataSet.setDrawCircles(true);
+            lineDataSet.setCircleColor(colorGrafica);
             lineDataSet.setLineWidth(1.5f);
             LineData data = new LineData(lineDataSet);
             data.setDrawValues(false);

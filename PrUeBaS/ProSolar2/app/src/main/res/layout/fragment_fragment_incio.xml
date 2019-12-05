@@ -8,206 +8,23 @@
     android:layout_height="match_parent"
     tools:context=".fragments.FragmentIncio">
 
-    <LinearLayout
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/spinnerInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity=""
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerInicio"
+        android:layout_width="312dp"
+        android:layout_height="438dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <LinearLayout
-                    android:id="@+id/linear1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/Nombre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="Humedad"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-
-                    <TextView
-                        android:id="@+id/dato1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato3"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="prueba"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato4"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/promedio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="Promedio"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/linear2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/Nombre2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="Irradiancia"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-
-                    <TextView
-                        android:id="@+id/dato1.2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato2.2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato3.2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato3"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato4.2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="prueba"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato5.2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato4"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/dato6.2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="dato5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                    <TextView
-                        android:id="@+id/promedio.2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="32dp"
-                        android:text="Promedio"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/spinnerInicio" />
 </androidx.constraintlayout.widget.ConstraintLayout>

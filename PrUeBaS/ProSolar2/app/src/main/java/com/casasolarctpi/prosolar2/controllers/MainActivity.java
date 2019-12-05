@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.casasolarctpi.prosolar2.R;
 import com.casasolarctpi.prosolar2.fragments.FragmentAyuda;

@@ -78,7 +78,6 @@ public class FragmentIrradiancia extends Fragment {
     private void inicializar() {
         chart = view.findViewById(R.id.tiempoRealIrra);
         colorGrafica = getResources().getColor(R.color.colorGraficaLinea3);
-        tipoDeDato = getString(R.string.irradiancia);
     }
 
     private void ingresarValoresFirebase() {
@@ -160,7 +159,8 @@ public class FragmentIrradiancia extends Fragment {
             LineDataSet lineDataSet = new LineDataSet(entradas, tipoDeDato);
             lineDataSet.setColor(colorGrafica);
             lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-            lineDataSet.setDrawCircles(false);
+            lineDataSet.setDrawCircles(true);
+            lineDataSet.setCircleColors(colorGrafica);
             lineDataSet.setCircleColor(colorGrafica);
             LineData data = new LineData(lineDataSet);
             data.setDrawValues(false);
@@ -175,12 +175,12 @@ public class FragmentIrradiancia extends Fragment {
             YAxis yAxisRight = chart.getAxisRight();
 
             if (valorMinimo > 10) {
-                valorMinimo -= 0.9f;
+                valorMinimo -= 5f;
             }
 
 
-            yAxisLeft.setAxisMaximum(valorMaximo + 0.9f);
-            yAxisRight.setAxisMaximum(valorMaximo + 0.9f);
+            yAxisLeft.setAxisMaximum(valorMaximo + 5f);
+            yAxisRight.setAxisMaximum(valorMaximo + 5f);
             yAxisLeft.setAxisMinimum(valorMinimo);
             yAxisRight.setAxisMinimum(valorMinimo);
             valorMaximo = 0;
@@ -265,12 +265,12 @@ public class FragmentIrradiancia extends Fragment {
         YAxis yAxisRight = chart.getAxisRight();
 
         if (valorMinimo > 10) {
-            valorMinimo -= 0.9f;
+            valorMinimo -= 5f;
         }
 
 
-        yAxisLeft.setAxisMaximum(valorMaximo + 0.9f);
-        yAxisRight.setAxisMaximum(valorMaximo + 0.9f);
+        yAxisLeft.setAxisMaximum(valorMaximo + 5f);
+        yAxisRight.setAxisMaximum(valorMaximo + 5f);
         yAxisLeft.setAxisMinimum(valorMinimo);
         yAxisRight.setAxisMinimum(valorMinimo);
         valorMaximo = 0;

@@ -18,6 +18,9 @@ public class DatosGuardados {
         this.temperatura = temperatura;
     }
 
+    public DatosGuardados() {
+    }
+
     public String getCorriente1() {
         return corriente1;
     }
