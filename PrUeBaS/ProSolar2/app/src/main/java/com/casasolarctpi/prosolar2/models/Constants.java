@@ -14,7 +14,7 @@ public class Constants {
 
     public static final String[] tipoDeUso = {"Academico", "Empresarial", "Comercial", "Otro"};
 
-    public static final String[] seleccionInicio = {"Corriente y Voltaje 1", "Corriente y Voltaje 2", "Corriente y Voltaje 3", "Corriente y Voltaje 4"};
+    public static final String[] seleccionInicio = {"Panel 1", "Panel 2", "Panel 3", "Panel 4"};
 
     public static final String [] MESES={"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
     public static final String [] DIAS_DE_LA_SEMANA = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};

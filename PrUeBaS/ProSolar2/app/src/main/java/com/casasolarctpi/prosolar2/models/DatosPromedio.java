@@ -7,6 +7,21 @@ public class DatosPromedio {
     public DatosPromedio() {
     }
 
+    public DatosPromedio(float hora, float temperaturaPromedio, float humedadPromedio, float corriente1Promedio, float corriente2Promedio, float corriente3Promedio, float corriente4Promedio, float irradianciaPromedio, float voltaje1Promedio, float voltaje2Promedio, float voltaje3Promedio, float voltaje4Promedio) {
+        this.hora = hora;
+        this.temperaturaPromedio = temperaturaPromedio;
+        this.humedadPromedio = humedadPromedio;
+        this.corriente1Promedio = corriente1Promedio;
+        this.corriente2Promedio = corriente2Promedio;
+        this.corriente3Promedio = corriente3Promedio;
+        this.corriente4Promedio = corriente4Promedio;
+        this.irradianciaPromedio = irradianciaPromedio;
+        this.voltaje1Promedio = voltaje1Promedio;
+        this.voltaje2Promedio = voltaje2Promedio;
+        this.voltaje3Promedio = voltaje3Promedio;
+        this.voltaje4Promedio = voltaje4Promedio;
+    }
+
     public float getHora() {
         return hora;
     }

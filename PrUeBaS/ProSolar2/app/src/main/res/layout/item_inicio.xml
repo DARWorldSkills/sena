@@ -38,8 +38,8 @@
             android:padding="8dp"
             android:text="Voltajes"
             android:textAlignment="textEnd"
-            android:textColor="@color/secondaryDarkColor"
-            android:textStyle="italic" />
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

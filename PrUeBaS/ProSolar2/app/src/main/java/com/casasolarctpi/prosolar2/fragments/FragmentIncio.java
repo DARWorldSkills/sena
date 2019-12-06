@@ -12,11 +12,21 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.casasolarctpi.prosolar2.R;
+import com.casasolarctpi.prosolar2.controllers.MainActivity;
 import com.casasolarctpi.prosolar2.models.Constants;
+import com.casasolarctpi.prosolar2.models.DatosGuardados;
+import com.casasolarctpi.prosolar2.models.DatosPromedio;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,11 +39,13 @@ public class FragmentIncio extends Fragment implements View.OnClickListener {
     private ProgressBar _progressBar;
     private final int TIEMPO = 5000;
     View view;
-    //3600000 una hora
+    // 300000 5 minutos
     MaterialSpinner spinnerInicio;
+    DatosGuardados datosGuardados = new DatosGuardados();
     RecyclerView recyclerView;
     List<String> corrientes = new ArrayList<>();
     List<String> voltajes = new ArrayList<>();
+    int year, month;
 
     public FragmentIncio() {
 
@@ -48,7 +60,7 @@ public class FragmentIncio extends Fragment implements View.OnClickListener {
 
         //ejecutarTarea();
         inicializar();
-        obtenerDatos();
+        obtenerDatos(year, month);
 
         return view;
 
@@ -56,7 +68,48 @@ public class FragmentIncio extends Fragment implements View.OnClickListener {
     }
 
 
-    private void obtenerDatos() {
+    private void obtenerDatos(int year, int month){
+
+        DatabaseReference dbrMonth = MainActivity.reference.child("datos").child("datosAcum").child("y"+year).child("m"+month);
+        dbrMonth.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@androidx.annotation.NonNull DataSnapshot dataSnapshot) {
+                GenericTypeIndicator<ArrayList<DatosGuardados>> t = new GenericTypeIndicator<ArrayList<DatosGuardados>>() {
+                };
+                try {
+                    datosGuardados = promedios(dataSnapshot.getValue(t));
+                    traerDatos();
+
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "Error de obtención", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@androidx.annotation.NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "No hay conexión a internet", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private DatosGuardados promedios(ArrayList<DatosGuardados> value) {
+        corrientes = Collections.singletonList(datosGuardados.corriente1);
+        corrientes = Collections.singletonList(datosGuardados.corriente2);
+        corrientes = Collections.singletonList(datosGuardados.corriente3);
+        corrientes = Collections.singletonList(datosGuardados.corriente4);
+
+        return (DatosGuardados) corrientes;
+    }
+
+    private void traerDatos() {
+
+
+        DatosGuardados promedio = new DatosGuardados();
+        float corriente = Float.parseFloat(promedio.getCorriente1());
+
+        Toast.makeText(getContext(), "" + corriente, Toast.LENGTH_SHORT).show();
+
 
     }
 
@@ -87,7 +140,7 @@ public class FragmentIncio extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
+        
     }
 
     private void getDataForPanel(String corriente1, String voltaje1) {
